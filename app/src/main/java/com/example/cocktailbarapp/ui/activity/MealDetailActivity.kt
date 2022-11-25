@@ -1,14 +1,13 @@
-package com.example.cocktailbarapp.ui
+package com.example.cocktailbarapp.ui.activity
 
 import android.os.Bundle
-import android.os.PersistableBundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.cocktailbarapp.R
 import com.example.cocktailbarapp.databinding.ActivitiyDetailMealBinding
+import com.example.cocktailbarapp.ui.adapter.MealDetailAdapter
+import com.example.cocktailbarapp.ui.fragment.HomeFragment
 import com.example.cocktailbarapp.viewmodel.MealDetailViewModel
 
 class MealDetailActivity: AppCompatActivity() {

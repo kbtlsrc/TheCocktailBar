@@ -1,4 +1,6 @@
-package com.example.cocktailbarapp.model
+package com.example.cocktailbarapp.model.drink
+
+
 
 data class CocktailList(
     val drinks: List<Drink>

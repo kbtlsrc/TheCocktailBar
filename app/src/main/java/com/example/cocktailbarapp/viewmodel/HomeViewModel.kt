@@ -3,17 +3,28 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.cocktailbarapp.model.*
+import androidx.lifecycle.viewModelScope
+import com.example.cocktailbarapp.db.DrinkDb
+import com.example.cocktailbarapp.model.drink.CategoryItems
+import com.example.cocktailbarapp.model.drink.CategoryList
+import com.example.cocktailbarapp.model.drink.CocktailList
+import com.example.cocktailbarapp.model.drink.Drink
+import com.example.cocktailbarapp.model.meal.MealCategory
+import com.example.cocktailbarapp.model.meal.MealCategoryList
 import com.example.cocktailbarapp.services.RetrofitService
+import kotlinx.coroutines.launch
 
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class HomeViewModel(): ViewModel() {
+class HomeViewModel(
+    private val drinkDb: DrinkDb
+): ViewModel() {
     private var randomMutableList = MutableLiveData<Drink>()
     private var popularItemMutableList =MutableLiveData<List<CategoryItems>>()
     private var mealCategoryMutableList = MutableLiveData<List<MealCategory>>()
+    private var favDrinkLiveData = drinkDb.drinkDao().getDrink()
   
     fun getRandomDrink(){
 
@@ -53,7 +64,7 @@ class HomeViewModel(): ViewModel() {
 
         })
     }
-    fun getMealCategory(){
+    fun  getMealCategory(){
         RetrofitService.mealApi.getMealCategory().enqueue(object: Callback<MealCategoryList>{
             override fun onResponse(call: Call<MealCategoryList>, response: Response<MealCategoryList>) {
                response.body()?.let {
@@ -68,6 +79,19 @@ class HomeViewModel(): ViewModel() {
 
         } )
     }
+
+    fun deleteDrink(drink: Drink){
+        viewModelScope.launch {
+            drinkDb.drinkDao().delete(drink)
+        }
+    }
+
+    fun insertDrink(drink: Drink){
+        viewModelScope.launch {
+            drinkDb.drinkDao().insert(drink)
+        }
+    }
+
 
 
 
@@ -84,5 +108,8 @@ class HomeViewModel(): ViewModel() {
         return mealCategoryMutableList
     }
 
+    fun observeFavDrinkLiveData(): LiveData<List<Drink>>{
+        return favDrinkLiveData
+    }
 
 }

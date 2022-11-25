@@ -1,9 +1,7 @@
 package com.example.cocktailbarapp.services
 
-import com.example.cocktailbarapp.model.CategoryList
-import com.example.cocktailbarapp.model.CocktailList
-import com.example.cocktailbarapp.model.MealCategory
-import com.example.cocktailbarapp.model.MealCategoryList
+import com.example.cocktailbarapp.model.drink.CategoryList
+import com.example.cocktailbarapp.model.drink.CocktailList
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Query

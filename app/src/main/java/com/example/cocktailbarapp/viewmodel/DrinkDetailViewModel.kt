@@ -4,14 +4,19 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.cocktailbarapp.model.CocktailList
-import com.example.cocktailbarapp.model.Drink
+import androidx.lifecycle.viewModelScope
+import com.example.cocktailbarapp.db.DrinkDb
+import com.example.cocktailbarapp.model.drink.CocktailList
+import com.example.cocktailbarapp.model.drink.Drink
 import com.example.cocktailbarapp.services.RetrofitService
+import kotlinx.coroutines.launch
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class DrinkDetailViewModel: ViewModel() {
+class DrinkDetailViewModel(
+    val drinkDb: DrinkDb
+): ViewModel() {
 
     private var detailMutableList = MutableLiveData<Drink>()
 
@@ -39,4 +44,14 @@ class DrinkDetailViewModel: ViewModel() {
     fun observeDrinkDetail(): LiveData<Drink> {
         return detailMutableList
     }
+
+    fun insertDrink(drink: Drink){
+        viewModelScope.launch {
+            drinkDb.drinkDao().insert(drink)
+
+
+        }
+    }
+
+
 }

@@ -1,12 +1,11 @@
-package com.example.cocktailbarapp.ui
+package com.example.cocktailbarapp.ui.adapter
 
-import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.cocktailbarapp.databinding.PopularItemBinding
-import com.example.cocktailbarapp.model.CategoryItems
+import com.example.cocktailbarapp.model.drink.CategoryItems
 
 
 

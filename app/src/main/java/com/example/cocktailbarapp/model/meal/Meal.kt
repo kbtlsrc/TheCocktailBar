@@ -1,4 +1,4 @@
-package com.example.cocktailbarapp.model
+package com.example.cocktailbarapp.model.meal
 
 data class Meal(
     val idMeal: String,

@@ -1,4 +1,4 @@
-package com.example.cocktailbarapp.model
+package com.example.cocktailbarapp.model.drink
 
 data class CategoryItems(
     val idDrink: String,

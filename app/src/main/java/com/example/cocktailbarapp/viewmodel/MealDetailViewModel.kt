@@ -4,10 +4,8 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.cocktailbarapp.model.AllMealList
-import com.example.cocktailbarapp.model.Meal
-import com.example.cocktailbarapp.model.MealCategory
-import com.example.cocktailbarapp.model.MealCategoryList
+import com.example.cocktailbarapp.model.meal.AllMealList
+import com.example.cocktailbarapp.model.meal.Meal
 import com.example.cocktailbarapp.services.RetrofitService
 import retrofit2.Call
 import retrofit2.Callback

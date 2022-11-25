@@ -1,4 +1,4 @@
-package com.example.cocktailbarapp.ui
+package com.example.cocktailbarapp.ui.fragment
 
 import androidx.fragment.app.Fragment
 

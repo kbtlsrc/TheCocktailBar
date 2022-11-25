@@ -1,11 +1,11 @@
-package com.example.cocktailbarapp.ui
+package com.example.cocktailbarapp.ui.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.cocktailbarapp.databinding.CategoryItemBinding
-import com.example.cocktailbarapp.model.MealCategory
+import com.example.cocktailbarapp.model.meal.MealCategory
 
 class MealCategoryAdapter: RecyclerView.Adapter<MealCategoryAdapter.MealViewHolder>() {
         private var mealCategoryList = ArrayList<MealCategory>()
